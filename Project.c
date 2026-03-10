@@ -13,10 +13,40 @@ void sleep_ms(int ms) { usleep(ms * 1000); }
 void p_line(const char *line, float seconds);
 void clear_screen(void);
 
-
 int main()
 {
+    clear_screen();
 
+    // GREETINGS AND MENU
+    p_line("\n================| STUDENT RECORD SYSTEM |================\n\n", 0.5);
+
+    int choice;
+
+    do
+    {
+        p_line("~ Please choose any option:-\n\n", 0.05);
+
+        printf("  1 => Add Student Record\n");
+        printf("  2 => View All Records\n");
+        printf("  3 => Search Student\n");
+        printf("  4 => Update Student Record\n");
+        printf("  5 => Delete Student Record\n");
+        printf("  6 => Calculate Result\n");
+        printf("  7 => Exit\n");
+
+        // INPUT CHOSE OPTION
+        p_line("\n=> Enter Your Choice: ", 0.05);
+
+        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 7)
+        {
+            printf("\nInvalid Input!\n");
+            printf("SORRY! We're Exiting");
+            p_line("...\n", 1.5);
+            return 1;
+        }
+
+        getchar(); // REMOVE NEW LINE
+    } while (choice != 7);
 }
 
 // FUNCTION PROTOTYPE
