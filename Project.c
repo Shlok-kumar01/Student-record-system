@@ -11,6 +11,8 @@ void sleep_ms(int ms) { usleep(ms * 1000); }
 #endif
 
 void p_line(const char *line, float seconds);
+void clear_screen(void);
+
 
 int main()
 {
@@ -18,6 +20,16 @@ int main()
 }
 
 // FUNCTION PROTOTYPE
+
+//  TO CLEAR SCREEN
+void clear_screen(void)
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
 
 // PRINT LINE WITH DELAY
 void p_line(const char *line, float seconds)
