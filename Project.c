@@ -10,15 +10,18 @@ void sleep_ms(int ms) { Sleep(ms); }
 void sleep_ms(int ms) { usleep(ms * 1000); }
 #endif
 
-typedef struct Student
-{
-    char name[100];
-    char course[20];
-    char roll_num[10];
-    int obtained_marks[5];
-} data;
+// DEFINING COLOR
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define PURPLE "\033[35m"
+#define BACKGROUND "\033[44m"
+#define ITALIC "\033[3m"
+#define BOLD "\033[1m"
+#define RESET "\033[0m"
 
-// FUNTION PROTOTYPE
+// FUNCTION PROTOTYPE
 void p_line(const char *line, float seconds);
 void clear_screen(void);
 void handle_new_student(void);
@@ -28,30 +31,32 @@ int main()
     clear_screen();
 
     // GREETINGS AND MENU
-    p_line("\n================| STUDENT RECORD SYSTEM |================\n\n", 0.5);
+    p_line(BACKGROUND BOLD "\t\t\t\t\t :-----------------------------------: \n", 0.1);
+    p_line("\t\t\t\t\t |       STUDENT RECORD SYSTEM       | \n", 0.1);
+    p_line("\t\t\t\t\t :-----------------------------------: \n" RESET, 0.1);
 
     int choice;
 
     do
     {
-        p_line("~ Please choose any option:-\n\n", 0.05);
+        p_line(GREEN BOLD "~ Please choose any option:-\n" RESET, 0.05);
 
-        printf("  1 => Add Student Record\n");
-        printf("  2 => View All Records\n");
-        printf("  3 => Search Student\n");
-        printf("  4 => Update Student Record\n");
-        printf("  5 => Delete Student Record\n");
-        printf("  6 => Calculate Result\n");
-        printf("  7 => Exit\n");
+        printf(ITALIC PURPLE "  1." RESET " Add Student Record\n");
+        printf(ITALIC PURPLE "  2." RESET " View All Records\n");
+        printf(ITALIC PURPLE "  3." RESET " Search Student\n");
+        printf(ITALIC PURPLE "  4." RESET " Update Student Record\n");
+        printf(ITALIC PURPLE "  5." RESET " Delete Student Record\n");
+        printf(ITALIC PURPLE "  6." RESET " Calculate Result\n");
+        printf(ITALIC PURPLE "  7." RESET " Exit\n");
 
         // INPUT CHOSE OPTION
-        p_line("\n=> Enter Your Choice: ", 0.05);
+        p_line(BLUE "\n Enter Your Choice: " RESET, 0.05);
 
         if (scanf("%d", &choice) != 1 || choice < 1 || choice > 8)
         {
-            printf("\nInvalid Choice!\n");
+            printf(RED ITALIC "\nInvalid Input!\n" RESET);
             printf("SORRY! We're Exiting");
-            p_line("...\n", 1.5);
+            p_line("...\n\n", 1.5);
             return 1;
         }
 
@@ -96,13 +101,15 @@ int main()
             break;
 
         case 7:
-            p_line("\n\n\t---| Bye! Visit Us Again |---", 0.7);
-            p_line("\n|===========================================|\n\n", 0.1);
+            // p_line(PURPLE"\n\n\t---| Bye! Visit Us Again |---"RESET, 0.7);
+            p_line(PURPLE ITALIC"\n\n\t\t +---------------------------+", 0.2);
+            p_line( "\n\t\t |  Bye! Visit Us Again :)   |", 0.2);
+            p_line( "\n\t\t +---------------------------+" RESET, 0.2);
             return 1;
             break;
 
         default:
-            printf("\n\t\tUnable to fetch details\n");
+            printf(RED ITALIC"\n\t\tUnable to fetch details\n" RESET);
             printf("\t\tSORRY! We're Exiting");
             p_line("...\n", 1.5);
             return 1;
