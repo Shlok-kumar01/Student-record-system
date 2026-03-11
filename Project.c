@@ -10,6 +10,15 @@ void sleep_ms(int ms) { Sleep(ms); }
 void sleep_ms(int ms) { usleep(ms * 1000); }
 #endif
 
+typedef struct Student
+{
+    char name[100];
+    char course[20];
+    char roll_num[10];
+    int obtained_marks[5];
+} data;
+
+// FUNTION PROTOTYPE
 void p_line(const char *line, float seconds);
 void clear_screen(void);
 
@@ -102,7 +111,7 @@ int main()
     } while (choice != 7);
 }
 
-// FUNCTION PROTOTYPE
+// FUNCTION DEFINATION
 
 //  TO CLEAR SCREEN
 void clear_screen(void)
