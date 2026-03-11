@@ -37,15 +37,68 @@ int main()
         // INPUT CHOSE OPTION
         p_line("\n=> Enter Your Choice: ", 0.05);
 
-        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 7)
+        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 8)
         {
-            printf("\nInvalid Input!\n");
+            printf("\nInvalid Choice!\n");
             printf("SORRY! We're Exiting");
             p_line("...\n", 1.5);
             return 1;
         }
 
         getchar(); // REMOVE NEW LINE
+
+        switch (choice)
+        {
+        case 1:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 2:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 3:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 4:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 5:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 6:
+            p_line("\n\t       Loading Servers", 0.2);
+            p_line("....\n", 0.5);
+            clear_screen();
+            break;
+
+        case 7:
+            p_line("\n\n\t---| Bye! Visit Us Again |---", 0.7);
+            p_line("\n|===========================================|\n\n", 0.1);
+            return 1;
+            break;
+
+        default:
+            printf("\n\t\tUnable to fetch details\n");
+            printf("\t\tSORRY! We're Exiting");
+            p_line("...\n", 1.5);
+            return 1;
+            break;
+        }
+
     } while (choice != 7);
 }
 
